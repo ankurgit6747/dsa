@@ -36,8 +36,50 @@ class LinkList {
   }
 
   // Insert at index
+  insertAtIndex(data, index) {
+    // If index is out of range
+    if( index > 0 && index > this.size) {
+      return;
+    }
+    // If first index
+    if(index === 0) {
+      this.insertFirstNode(data)
+      return;
+    }
+
+    const node = new Node(data);
+    let current, previous;
+    
+    // set current to first
+    current = this.head;
+    let count = 0
+
+    while(count < index) {
+      previous = current; // node before index
+      count++;
+      current = current.next; // node after index
+    }
+
+    node.next = current;
+    previous.next = node;
+
+    this.size++;
+  }
 
   // Get at index
+  getAt(index) {
+    let current = this.head;
+    let count = 0;
+
+    while(current) {
+      if(count === index) {
+        console.log(`index at ${index} is ${current.data}`)
+      }
+      count++;
+      current = current.next;
+    }
+    return null;
+  }
 
   // Remove at index
 
@@ -46,7 +88,6 @@ class LinkList {
   // Print the list data
   printData() {
     let current = this.head;
-
     while(current){
       console.log(current.data)
       current = current.next;
@@ -56,8 +97,13 @@ class LinkList {
 
 const ll = new LinkList()
 ll.insertFirstNode(100)
+ll.insertFirstNode(101)
+ll.insertFirstNode(102)
+ll.insertFirstNode(103)
+ll.insertFirstNode(104)
 ll.insertFirstNode(200)
 ll.insertFirstNode(300)
 ll.insertLastNode(400)
-
+ll.insertAtIndex(101, 2)
+ll.getAt(2)
 ll.printData()
