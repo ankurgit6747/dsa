@@ -1,15 +1,3 @@
-// const n1 = {
-//   data: 100
-// }
-
-// const n2 = {
-//   data: 200
-// }
-
-// n1.next = n2
-
-// console.log(n1)
-
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -26,8 +14,26 @@ class LinkList {
   // Insert first node
   insertFirstNode(data) {
     this.head = new Node(data, this.head)
+    this.size++
   }
   // Insert last node
+  insertLastNode(data) {
+    let node = new Node(data)
+    let current;
+
+    // if emoty make head
+    if(!this.head) {
+      this.head = node;
+    } else {
+      current = this.head;
+      while(current.next) {
+        current = current.next
+      }
+
+      current.next = node;
+    }
+    this.size++;
+  }
 
   // Insert at index
 
@@ -52,5 +58,6 @@ const ll = new LinkList()
 ll.insertFirstNode(100)
 ll.insertFirstNode(200)
 ll.insertFirstNode(300)
+ll.insertLastNode(400)
 
 ll.printData()
