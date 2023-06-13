@@ -35,7 +35,13 @@ const printLinkListRes = (head) => {
   printLinkListRes(head.next) 
 }
 
+const insertFirstNode = (head, data) => {
+  let newNode = new Node(data);
+  newNode.next = head;
+  return newNode;''
+}
 
-printLinkList(a)
-printLinkListRes(a)
 
+// printLinkListRes(a)
+insertFirstNode(a, 'Insert this data at first node')
+// printLinkList(a)

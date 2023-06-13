@@ -16,12 +16,13 @@ class LinkList {
     this.head = new Node(data, this.head)
     this.size++
   }
+  
   // Insert last node
   insertLastNode(data) {
     let node = new Node(data)
     let current;
 
-    // if emoty make head
+    // if empty make head
     if(!this.head) {
       this.head = node;
     } else {
