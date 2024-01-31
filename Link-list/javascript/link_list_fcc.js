@@ -22,7 +22,7 @@ d.next = e;
 
 const printLinkList = (head) => {
   let current = head;
-  while(current !== null) {
+  while (current !== null) {
     console.log(current.val);
     current = current.next
   }
@@ -30,18 +30,38 @@ const printLinkList = (head) => {
 
 // recursiverly
 const printLinkListRes = (head) => {
-  if(head === null) return;
+  if (head === null) return;
   console.log(head.val)
-  printLinkListRes(head.next) 
+  printLinkListRes(head.next)
 }
 
 const insertFirstNode = (head, data) => {
   let newNode = new Node(data);
   newNode.next = head;
-  return newNode;''
+  return newNode; ''
+}
+
+const findMiddleNode = (head) => {
+  if (head === null) return null;
+
+  let slow = head;
+  let fast = head;
+
+  while (fast !== null && fast.next !== null) {
+    slow = fast;
+    fast = fast.next.next;
+  }
+
+  return slow;
+}
+// console.log(findMiddleNode(a))
+
+const reverseLinkList = (head) => {
+
 }
 
 
+
 // printLinkListRes(a)
-insertFirstNode(a, 'Insert this data at first node')
+// insertFirstNode(a, 'Insert this data at first node')
 // printLinkList(a)
